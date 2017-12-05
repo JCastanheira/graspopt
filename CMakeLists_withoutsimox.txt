@@ -1,0 +1,13 @@
+PROJECT ( myDemo )
+
+ADD_EXECUTABLE(myDemo ./iCubSimulator.cpp ./src/DatasetDist.cpp ./src/MeanModelDist.cpp ./src/TGPNode.cpp ./src/TreedGaussianProcess.cpp)
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories("../bayesopt/include")
+include_directories("../bayesopt/utils")
+
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -lpthread -Wno-unused-local-typedefs")
+
+target_link_libraries(myDemo libbayesopt.a libnlopt.a)
+
+

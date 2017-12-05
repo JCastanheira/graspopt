@@ -1,0 +1,19 @@
+#!bin/bash
+
+dropbox stop
+
+echo "Erasing Project"
+
+make clean
+
+rm -rf CMakeCache.txt CMakefiles cmake_install.cmake Makefile
+
+echo "Creating Project"
+
+cmake .
+
+echo "Run makefile"
+
+make -j8
+
+dropbox start
